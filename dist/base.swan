@@ -1,0 +1,66 @@
+<import-sjs module="xs" src="./utils.sjs" />
+<template name="taro_tmpl">
+  <block s-for="{{root.cn}}" s-key="id">
+    <template is="tmpl_0_container" data="{{{ i: item }}}" />
+  </block>
+</template>
+
+<template name="tmpl_0_view">
+  <view hover-class="{{ i.hoverClass === undefined ? 'none' : i.hoverClass }}" hover-stop-propagation="{{ i.hoverStopPropagation === undefined ? false : i.hoverStopPropagation }}" hover-start-time="{{ i.hoverStartTime === undefined ? 50 : i.hoverStartTime }}" hover-stay-time="{{ i.hoverStayTime === undefined ? 400 : i.hoverStayTime }}" animation="{{ i.animation }}" bindanimationstart="eh" bindanimationiteration="eh" bindanimationend="eh" bindtransitionend="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongtap="eh" style="{{ i.st }}" class="{{ i.cl }}" bindtap="eh"  id="{{ i.uid }}">
+    <block s-for="{{i.cn}}" s-key="id">
+      <template is="tmpl_0_container" data="{{{ i: item }}}" />
+    </block>
+  </view>
+</template>
+
+<template name="tmpl_0_text">
+  <text selectable="{{ i.selectable === undefined ? false : i.selectable }}" space="{{ i.space }}" decode="{{ i.decode === undefined ? false : i.decode }}" style="{{ i.st }}" class="{{ i.cl }}" bindtap="eh"  id="{{ i.uid }}">
+    <block s-for="{{i.cn}}" s-key="id">
+      <block>{{ i.cn[index].v }}</block>
+    </block>
+  </text>
+</template>
+
+<template name="tmpl_0_button">
+  <button size="{{ i.size === undefined ? 'default' : i.size }}" type="{{ i.type }}" plain="{{ i.plain === undefined ? false : i.plain }}" disabled="{{ i.disabled }}" loading="{{ i.loading === undefined ? false : i.loading }}" form-type="{{ i.formType }}" open-type="{{ i.openType }}" hover-class="{{ i.hoverClass === undefined ? 'button-hover' : i.hoverClass }}" hover-stop-propagation="{{ i.hoverStopPropagation === undefined ? false : i.hoverStopPropagation }}" hover-start-time="{{ i.hoverStartTime === undefined ? 20 : i.hoverStartTime }}" hover-stay-time="{{ i.hoverStayTime === undefined ? 70 : i.hoverStayTime }}" lang="{{ i.lang === undefined ? en : i.lang }}" session-from="{{ i.sessionFrom }}" send-message-title="{{ i.sendMessageTitle }}" send-message-path="{{ i.sendMessagePath }}" send-message-img="{{ i.sendMessageImg }}" app-parameter="{{ i.appParameter }}" show-message-card="{{ i.showMessageCard === undefined ? false : i.showMessageCard }}" bindgetuserinfo="eh" bindgetauthorize="eh" bindcontact="eh" bindgetphonenumber="eh" binderror="eh" bindopensetting="eh" bindlaunchapp="eh" scope="{{ i.scope }}" name="{{ i.name }}" style="{{ i.st }}" class="{{ i.cl }}" bindtap="eh"  id="{{ i.uid }}">
+    <block s-for="{{i.cn}}" s-key="id">
+      <template is="tmpl_0_container" data="{{{ i: item }}}" />
+    </block>
+  </button>
+</template>
+
+<template name="tmpl_0_input">
+  <template is="{{ i.focus ? 'tmpl_0_input_focus' : 'tmpl_0_input_blur' }}" data="{{{ i: i }}}" />
+</template>
+
+<template name="tmpl_0_input_focus">
+  <input value="{= i.value =}" type="{{ i.type === undefined ? '' : i.type }}" password="{{ i.password === undefined ? false : i.password }}" placeholder="{{ i.placeholder }}" placeholder-style="{{ i.placeholderStyle }}" placeholder-class="{{ i.placeholderClass === undefined ? 'input-placeholder' : i.placeholderClass }}" disabled="{{ i.disabled }}" maxlength="{{ i.maxlength === undefined ? 140 : i.maxlength }}" cursor-spacing="{{ i.cursorSpacing === undefined ? 0 : i.cursorSpacing }}" auto-focus="{{ i.autoFocus === undefined ? false : i.autoFocus }}" focus="{{ i.focus === undefined ? false : i.focus }}" confirm-type="{{ i.confirmType === undefined ? 'done' : i.confirmType }}" confirm-hold="{{ i.confirmHold === undefined ? false : i.confirmHold }}" cursor="{{ i.cursor === undefined ? i.value.length : i.cursor }}" selection-start="{{ i.selectionStart === undefined ? -1 : i.selectionStart }}" selection-end="{{ i.selectionEnd === undefined ? -1 : i.selectionEnd }}" adjust-position="{{ i.adjustPosition === undefined ? true : i.adjustPosition }}" hold-keyboard="{{ i.holdKeyboard === undefined ? false : i.holdKeyboard }}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{ i.name }}" style="{{ i.st }}" class="{{ i.cl }}" bindtap="eh"  id="{{ i.uid }}" />
+</template>
+
+<template name="tmpl_0_input_blur">
+  <input value="{= i.value =}" type="{{ i.type === undefined ? '' : i.type }}" password="{{ i.password === undefined ? false : i.password }}" placeholder="{{ i.placeholder }}" placeholder-style="{{ i.placeholderStyle }}" placeholder-class="{{ i.placeholderClass === undefined ? 'input-placeholder' : i.placeholderClass }}" disabled="{{ i.disabled }}" maxlength="{{ i.maxlength === undefined ? 140 : i.maxlength }}" cursor-spacing="{{ i.cursorSpacing === undefined ? 0 : i.cursorSpacing }}" auto-focus="{{ i.autoFocus === undefined ? false : i.autoFocus }}" confirm-type="{{ i.confirmType === undefined ? 'done' : i.confirmType }}" confirm-hold="{{ i.confirmHold === undefined ? false : i.confirmHold }}" cursor="{{ i.cursor === undefined ? i.value.length : i.cursor }}" selection-start="{{ i.selectionStart === undefined ? -1 : i.selectionStart }}" selection-end="{{ i.selectionEnd === undefined ? -1 : i.selectionEnd }}" adjust-position="{{ i.adjustPosition === undefined ? true : i.adjustPosition }}" hold-keyboard="{{ i.holdKeyboard === undefined ? false : i.holdKeyboard }}" bindinput="eh" bindfocus="eh" bindblur="eh" bindconfirm="eh" bindkeyboardheightchange="eh" name="{{ i.name }}" style="{{ i.st }}" class="{{ i.cl }}" bindtap="eh"  id="{{ i.uid }}" />
+</template>
+
+<template name="tmpl_0_scroll-view">
+  <scroll-view scroll-x="{{ i.scrollX === undefined ? false : i.scrollX }}" scroll-y="{{ i.scrollY === undefined ? false : i.scrollY }}" upper-threshold="{{ i.upperThreshold === undefined ? 50 : i.upperThreshold }}" lower-threshold="{{ i.lowerThreshold === undefined ? 50 : i.lowerThreshold }}" scroll-top="{{ i.scrollTop }}" scroll-left="{{ i.scrollLeft }}" scroll-into-view="{{ i.scrollIntoView }}" scroll-with-animation="{{ i.scrollWithAnimation === undefined ? false : i.scrollWithAnimation }}" enable-back-to-top="{{ i.enableBackToTop === undefined ? false : i.enableBackToTop }}" enable-flex="{{ i.enableFlex === undefined ? false : i.enableFlex }}" scroll-anchoring="{{ i.scrollAnchoring === undefined ? false : i.scrollAnchoring }}" refresher-enabled="{{ i.refresherEnabled === undefined ? false : i.refresherEnabled }}" refresher-threshold="{{ i.refresherThreshold === undefined ? 45 : i.refresherThreshold }}" refresher-default-style="{{ i.refresherDefaultStyle === undefined ? 'black' : i.refresherDefaultStyle }}" refresher-background="{{ i.refresherBackground === undefined ? '#FFF' : i.refresherBackground }}" refresher-triggered="{{ i.refresherTriggered === undefined ? false : i.refresherTriggered }}" bindrefresherpulling="eh" bindrefresherrefresh="eh" bindrefresherrestore="eh" bindrefresherabort="eh" bindscrolltoupper="eh" bindscrolltolower="eh" bindscroll="eh" bindtouchstart="eh" bindtouchmove="eh" bindtouchend="eh" bindtouchcancel="eh" bindlongtap="eh" style="{{ i.st }}" class="{{ i.cl }}" bindtap="eh"  id="{{ i.uid }}">
+    <block s-for="{{i.cn}}" s-key="id">
+      <template is="tmpl_0_container" data="{{{ i: item }}}" />
+    </block>
+  </scroll-view>
+</template>
+
+<template name="tmpl_0_image">
+  <image src="{{ i.src }}" mode="{{ i.mode === undefined ? 'scaleToFill' : i.mode }}" webp="{{ i.webp === undefined ? false : i.webp }}" lazy-load="{{ i.lazyLoad === undefined ? false : i.lazyLoad }}" show-menu-by-longpress="{{ i.showMenuByLongpress === undefined ? false : i.showMenuByLongpress }}" binderror="eh" bindload="eh" style="{{ i.st }}" class="{{ i.cl }}" bindtap="eh"  id="{{ i.uid }}">
+    <block s-for="{{i.cn}}" s-key="id">
+      <template is="tmpl_0_container" data="{{{ i: item }}}" />
+    </block>
+  </image>
+</template>
+
+<template name="tmpl_0_#text" data="{{{ i: i }}}">
+  <block>{{i.v}}</block>
+</template>
+
+<template name="tmpl_0_container" data="{{{ i: i }}}">
+  <template is="{{'tmpl_0_' + i.nn}}" data="{{{ i: i }}}" />
+</template>
