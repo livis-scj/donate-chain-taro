@@ -1,6 +1,6 @@
 const config = {
   projectName: 'donate-chain-taro',
-  date: '2020-7-21',
+  date: '2020-7-23',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,

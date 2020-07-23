@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
   "projectname": "donate-chain-taro",
-  "description": "扶贫捐赠溯源服务平台小程序版",
+  "description": "扶贫信息追溯服务平台 小程序版",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
