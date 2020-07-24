@@ -1,8 +1,0 @@
-# Dependency directories
-node_modules/
-
-# build assets
-dist
-
-# for apim
-package-lock.json
