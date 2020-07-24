@@ -2,7 +2,7 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "donate-chain-taro",
 	"description": "扶贫信息追溯服务平台 小程序版",
-	"appid": "touristappid",
+	"appid": "wx637bc930efaaed95",
 	"setting": {
 		"urlCheck": true,
 		"scopeDataCheck": false,
@@ -19,9 +19,16 @@
 		"useIsolateContext": true,
 		"nodeModules": false,
 		"enhance": false,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false,
-		"showShadowRootInWxmlPanel": true
+		"showShadowRootInWxmlPanel": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",
