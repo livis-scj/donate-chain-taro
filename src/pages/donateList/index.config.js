@@ -1,3 +1,4 @@
 export default {
-  navigationBarTitleText: '首页'
+  "navigationBarTitleText": "感谢您的爱心捐款",
+  "backgroundColor": "#fff"
 }
