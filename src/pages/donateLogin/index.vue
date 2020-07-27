@@ -42,7 +42,7 @@ export default {
                             duration: 2000
                         }).then(() => {
                             Taro.redirectTo({
-                                url: '/pages/donateList/index'
+                                url: `/pages/donateList/index?name=${res.data.data.name}&userId=${res.data.data.userId}`
                             });
                         });
                     }

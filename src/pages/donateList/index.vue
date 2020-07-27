@@ -64,17 +64,6 @@
         </view>
       <button @tap="submitForm">确定募捐</button>
     </view>
-    <dialog top="8vh" width="50%" custom-class="donate" :show="successDialog">
-        <view class="certificate">
-            <view class="header">捐赠证书</view>
-            <!-- <h1>尊敬的 {{certificateData.donorName}} 先生/女士：</h1>
-            <view class="desc">感谢您对于贫困人员捐出的<span style="color:orange">{{certificateData.quantity}}元。</span></view>
-            <view class="desc">爱心码为{{certificateData.certCode}}，凭爱心码可以于追溯平台查找查询，请妥善保管。</view>
-            <view class="desc">特颁此证！</view>
-            <view class="enterprise">扶贫捐助信息平台</view>
-            <view class="data">{{certificateData.donateTime | timeFormat}}</view> -->
-        </view>
-    </dialog>
   </view>
 </template>
 
@@ -83,11 +72,13 @@ import './index.less'
 import hopeProject from '../../asserts/image/hope-project.jpeg'
 import hlepPoor from '../../asserts/image/help-poor.jpg'
 import Taro from '@tarojs/taro'
+import {getCurrentInstance} from '@tarojs/taro'
 
 export default {
   data () {
     return {
-      successDialog: false,
+      buttons: [{text: '取消'}, {text: '确定'}],
+      userId: '',
       hopeProject,
       hlepPoor,
       form: {
@@ -130,10 +121,18 @@ export default {
       ]
     }
   },
+  onReady (options) {
+    console.log('onReady')
+    console.log(getCurrentInstance().router.params)
+    const params = getCurrentInstance().router.params;
+    this.form.name = params.name;
+    this.userId = params.userId;
+  },
   methods: {
     handleRadio(e) {
       console.log(e)
       this.error.money = '';
+      this.form.money = '';
       if (e.detail && e.detail.value) {
         this.form.moneyRadio = e.detail.value;
       }
@@ -202,24 +201,32 @@ export default {
           url: 'http://122.112.158.98:8149/donate/submit',
           method: 'POST',
           data: {
-            donorId: 1,
-              loginId: 1,
-              isAnonymous: 0,
-              details: [
-                {
-                  name: '善款',
-                      type: '0',
-                      unit: '元',
-                      quantity: 100
-                  }
-              ]
+            loginId: this.userId,
+            isAnonymous: this.form.anonymous,
+            details: [
+              {
+                name: '善款',
+                type: '1',
+                unit: '元',
+                quantity: this.form.moneyRadio === 'other' ? this.form.money : this.form.moneyRadio
+              }
+            ]
           },
           header: {
             'content-type': 'application/json' // 默认值
           },
-          success: function (res) {
-            this.successDialog = true;
+          success: res => {
             console.log(res.data)
+            this.certificateData = {
+              donorName: res.data.data.donorName,
+              quantity: res.data.data.quantity,
+              certCode: res.data.data.certCode,
+              donateTime: res.data.data.donateTime
+            };
+            console.log(this.certificateData)
+            Taro.redirectTo({
+                url: `/pages/certificate/index?donorName=${res.data.data.donorName}&quantity=${res.data.data.quantity}&certCode=${res.data.data.certCode}&donateTime=${res.data.data.donateTime}`
+            });
           }
         })
       }

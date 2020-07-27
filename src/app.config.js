@@ -1,7 +1,8 @@
 export default {
     pages: [
       'pages/donateLogin/index',
-      'pages/donateList/index'
+      'pages/certificate/index',
+      'pages/donateList/index',
     ],
     window: {
         backgroundTextStyle: 'light',
