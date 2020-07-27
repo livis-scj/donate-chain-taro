@@ -17,6 +17,7 @@
             </view>
             <view class="form-item">
                 <button type="primary" form-type="submit">登录</button>
+                <button type="none" @tap="hadnleRegister">注册</button>
             </view>
         </form>
     </view>
@@ -70,6 +71,11 @@ export default {
                     }
                 }
             });
+        },
+        hadnleRegister() {
+            Taro.redirectTo({
+                url: '/pages/donateRegister/index'
+            });
         }
     }
 };
@@ -110,7 +116,7 @@ export default {
             }
         }
         button {
-            width: 100%;
+            width: calc(50% - 12px);
         }
     }
 }
