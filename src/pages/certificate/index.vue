@@ -29,17 +29,13 @@ export default {
       }
   },
   onReady (options) {
-    console.log('onReady')
-    console.log(getCurrentInstance().router.params)
     const params = getCurrentInstance().router.params;
     this.certificateData = {
       donorName: params.donorName,
       quantity: params.quantity,
-      certCode: params.certCode,
+      certCode: params.certCode.slice(0, 30) + '\n' + params.certCode.slice(30),
       donateTime: params.donateTime
     };
-  },
-  methods: {
   }
 }
 </script>
