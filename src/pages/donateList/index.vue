@@ -69,7 +69,6 @@
 
 <script>
 import './index.less'
-import hopeProject from '../../asserts/image/hope-project.jpeg'
 import hlepPoor from '../../asserts/image/help-poor.jpg'
 import Taro from '@tarojs/taro'
 import {getCurrentInstance} from '@tarojs/taro'
@@ -77,9 +76,7 @@ import {getCurrentInstance} from '@tarojs/taro'
 export default {
   data () {
     return {
-      buttons: [{text: '取消'}, {text: '确定'}],
       userId: '',
-      hopeProject,
       hlepPoor,
       form: {
         moneyRadio: '',
@@ -122,15 +119,12 @@ export default {
     }
   },
   onReady (options) {
-    console.log('onReady')
-    console.log(getCurrentInstance().router.params)
     const params = getCurrentInstance().router.params;
     this.form.name = params.name;
     this.userId = params.userId;
   },
   methods: {
     handleRadio(e) {
-      console.log(e)
       this.error.money = '';
       this.form.money = '';
       if (e.detail && e.detail.value) {
@@ -138,7 +132,6 @@ export default {
       }
     },
     handleAnonymous(e) {
-      console.log(e)
       if (e.detail && e.detail.value) {
         this.form.anonymous = e.detail.value
       }
@@ -150,7 +143,6 @@ export default {
       };
       this.radioItem = JSON.parse(JSON.stringify(items));
       this.form.moneyRadio = 'other';
-      console.log(this.form)
     },
     inputHandle(name) {
       this.error[name] = '';
@@ -185,7 +177,6 @@ export default {
       return flag;
     },
     submitForm() {
-      console.log(this.form)
       const flag = this.verify();
       if (flag) {
         // Taro.requestPayment({
@@ -216,14 +207,6 @@ export default {
             'content-type': 'application/json' // 默认值
           },
           success: res => {
-            console.log(res.data)
-            this.certificateData = {
-              donorName: res.data.data.donorName,
-              quantity: res.data.data.quantity,
-              certCode: res.data.data.certCode,
-              donateTime: res.data.data.donateTime
-            };
-            console.log(this.certificateData)
             Taro.redirectTo({
                 url: `/pages/certificate/index?donorName=${res.data.data.donorName}&quantity=${res.data.data.quantity}&certCode=${res.data.data.certCode}&donateTime=${res.data.data.donateTime}`
             });
