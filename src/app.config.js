@@ -1,12 +1,12 @@
 export default {
-  pages: [
-    'pages/donateList/index',
-    'pages/donateLogin/index'
-  ],
-  window: {
-    backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
-  }
-}
+    pages: [
+      'pages/donateLogin/index',
+      'pages/donateList/index'
+    ],
+    window: {
+        backgroundTextStyle: 'light',
+        navigationBarBackgroundColor: '#fff',
+        navigationBarTitleText: 'WeChat',
+        navigationBarTextStyle: 'black'
+    }
+};
