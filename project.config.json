@@ -2,10 +2,10 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "donate-chain-taro",
 	"description": "扶贫信息追溯服务平台 小程序版",
-	"appid": "wxb3f47c7b8af8a997",
+	"appid": "wx637bc930efaaed95",
 	"setting": {
 		"urlCheck": false,
-		"es6": false,
+		"es6": true,
 		"enhance": false,
 		"postcss": false,
 		"minified": false,

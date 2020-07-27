@@ -1,6 +1,7 @@
 export default {
     pages: [
       'pages/donateLogin/index',
+      'pages/donateRegister/index',
       'pages/certificate/index',
       'pages/donateList/index',
     ],
