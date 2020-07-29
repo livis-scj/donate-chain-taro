@@ -33,7 +33,7 @@ export default {
     this.certificateData = {
       donorName: params.donorName,
       quantity: params.quantity,
-      certCode: params.certCode.slice(0, 30) + '\n' + params.certCode.slice(30),
+      certCode: params.certCode.slice(0, 30) + '\n' + params.certCode.slice(30, 60) + '\n' + params.certCode.slice(60),
       donateTime: params.donateTime
     };
   }
